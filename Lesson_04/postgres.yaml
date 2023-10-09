@@ -23,7 +23,7 @@ spec:
         - name: POSTGRES_DB
           value: testdatabase
         - name: PGDATA
-          value: /var/lib/postgresql/data
+          value: /var/lib/postgresql/data/pgdata
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
@@ -36,6 +36,6 @@ spec:
         - name: pgdata
           mountPath: /var/lib/postgresql/data
       volumes:
-       - name: pgdata
-        persistentVolumeClaim:
-          claimName: postgres
+        - name: pgdata
+          persistentVolumeClaim:
+            claimName: postgres
